@@ -31,7 +31,7 @@ public class UserController {
                           @RequestParam("age") int age) {
         User user = new User(name, lastName, age);
         userService.addUser(user);
-        return "redirect:/";
+        return "redirect:/users";
     }
 
     @GetMapping("/edit")
@@ -48,12 +48,12 @@ public class UserController {
         User user = new User(name, lastName, age);
         user.setId(id);
         userService.updateUser(user);
-        return "redirect:/";
+        return "redirect:/users";
     }
 
     @PostMapping("/delete")
     public String deleteUser(@RequestParam("id") Long id) {
         userService.deleteUser(id);
-        return "redirect:/";
+        return "redirect:/users";
     }
 }
